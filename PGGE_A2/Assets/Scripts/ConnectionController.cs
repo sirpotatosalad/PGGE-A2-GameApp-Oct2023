@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 namespace PGGE
 {
@@ -57,12 +58,20 @@ namespace PGGE
                     PhotonNetwork.GameVersion = gameVersion;
                 }
             }
+
+            public void OnClickConnect()
+            {
+                PhotonNetwork.ConnectUsingSettings();
+            }
+
             public override void OnConnectedToMaster()
             {
                 if (isConnecting)
                 {
                     Debug.Log("OnConnectedToMaster() was called by PUN");
-                    PhotonNetwork.JoinRandomRoom();
+                    //PhotonNetwork.JoinRandomRoom();
+
+                    SceneManager.LoadScene("Multiplayer_Lobby");
                 }
             }
 

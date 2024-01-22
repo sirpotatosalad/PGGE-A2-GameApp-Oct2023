@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplayer_Launcher.unity
     guid: 09fb9131d4124b344a8f5a66f63aa4bb
   - enabled: 1
+    path: Assets/Scenes/Multiplayer_Lobby.unity
+    guid: 4953f533b1d0b56499093b46a7dea345
+  - enabled: 1
     path: Assets/Scenes/MultiplayerMap00.unity
     guid: 6c3158717fe1bd8419ac3640211732c1
   - enabled: 1
