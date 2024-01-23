@@ -15,6 +15,11 @@ public class RoomItem : MonoBehaviour
         roomName.text = _roomName;
     }
 
+    public string GetRoomName()
+    {
+        return roomName.text;
+    }
+
     public void SetPlayerCount(int _playerCount)
     {
         playerCount.text = "Players: " + _playerCount + "/16";

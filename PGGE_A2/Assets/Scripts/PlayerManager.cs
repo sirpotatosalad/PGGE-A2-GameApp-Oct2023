@@ -38,8 +38,21 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        //Debug.LogFormat("OnLeftRoom()");
-        SceneManager.LoadScene("Menu");
+        Debug.LogFormat("OnLeftRoom()");
+    }
+
+
+
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
+        StartCoroutine(LoadWithDelay());
+    }
+
+    IEnumerator LoadWithDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Multiplayer_Lobby");
     }
 
 }
