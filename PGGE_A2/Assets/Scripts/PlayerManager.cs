@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
+        MenuSoundManager.Instance.PlayButtonClickSound();
         Debug.LogFormat("LeaveRoom");
         PhotonNetwork.LeaveRoom();
     }
@@ -46,12 +47,14 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
+        Debug.Log("Joining back main lobby");
         StartCoroutine(LoadWithDelay());
+        //SceneManager.LoadScene("Multiplayer_Lobby");
     }
 
     IEnumerator LoadWithDelay()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene("Multiplayer_Lobby");
     }
 

@@ -261,7 +261,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -131.71176, y: 0, z: -95.527115, w: 0}
+  m_margin: {x: -131.71176, y: 0, z: -496.15, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -494,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: {fileID: 6060285585960964744}
   playerCount: {fileID: 6505055055234050262}
+  bgImg: {fileID: 7216152765659401843}
 --- !u!1 &8987439165456221095
 GameObject:
   m_ObjectHideFlags: 0

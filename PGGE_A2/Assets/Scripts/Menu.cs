@@ -21,12 +21,14 @@ public class Menu : MonoBehaviour
     {
         //Debug.Log("Loading singleplayer game");
         SceneManager.LoadScene("SinglePlayer");
+        MenuSoundManager.Instance.PlayButtonClickSound();
     }
 
     public void OnClickMultiPlayer()
     {
         //Debug.Log("Loading multiplayer game");
         SceneManager.LoadScene("Multiplayer_Launcher");
+        MenuSoundManager.Instance.PlayButtonClickSound();
     }
 
 }

@@ -61,7 +61,9 @@ namespace PGGE
 
             public void OnClickConnect()
             {
+                MenuSoundManager.Instance.PlayButtonClickSound();
                 PhotonNetwork.ConnectUsingSettings();
+
             }
 
             public override void OnConnectedToMaster()
@@ -107,6 +109,15 @@ namespace PGGE
                     PhotonNetwork.LoadLevel("MultiplayerMap00");
                 }
             }
+
+            public void OnClickBackButton()
+            {
+                MenuSoundManager.Instance.PlayButtonClickSound();
+                Debug.Log("Returning to Main Menu");
+                SceneManager.LoadScene("Menu");
+
+            }
+
         }
     }
 }
