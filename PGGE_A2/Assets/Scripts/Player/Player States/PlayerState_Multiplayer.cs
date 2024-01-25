@@ -5,6 +5,7 @@ using PGGE.Patterns;
 
 public class PlayerState_Multiplayer : FSMState
 {
+
     protected Player_Multiplayer mPlayer = null;
 
     public PlayerState_Multiplayer(Player_Multiplayer player) 
@@ -172,7 +173,8 @@ public class PlayerState_Multiplayer_ATTACK : PlayerState_Multiplayer
         if (mPlayer.mAmunitionCount <= 0 && mPlayer.mBulletsInMagazine <= 0)
         {
             mPlayer.mFsm.SetCurrentState((int)PlayerStateType.MOVEMENT);
-            mPlayer.NoAmmo();
+            //removed unused method
+            //mPlayer.NoAmmo();
             return;
         }
 
@@ -192,7 +194,8 @@ public class PlayerState_Multiplayer_ATTACK : PlayerState_Multiplayer
 
 public class PlayerState_Multiplayer_RELOAD : PlayerState_Multiplayer
 {
-    public float ReloadTime = 3.0f;
+    //changed to a private const.
+    private const float ReloadTime = 3.0f;
     float dt = 0.0f;
     public int previousState;
     public PlayerState_Multiplayer_RELOAD(Player_Multiplayer player) : base(player)
@@ -203,7 +206,8 @@ public class PlayerState_Multiplayer_RELOAD : PlayerState_Multiplayer
     public override void Enter()
     {
         mPlayer.mAnimator.SetTrigger("Reload");
-        mPlayer.Reload();
+        //removed unused method
+        //mPlayer.Reload();
         dt = 0.0f;
     }
     public override void Exit()

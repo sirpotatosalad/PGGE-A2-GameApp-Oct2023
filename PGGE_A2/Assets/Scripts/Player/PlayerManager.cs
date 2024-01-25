@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         mThirdPersonCamera.mCameraType = CameraType.Follow_Track_Pos_Rot;
     }
 
+    // modified previous code to leave the current room, and making use of the button sound.
     public void LeaveRoom()
     {
         MenuSoundManager.Instance.PlayButtonClickSound();
@@ -43,11 +44,13 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
 
-
+    // when player connects to the master server after leaving room, reconnects them to the Multiplayer_Lobby scene
     public override void OnConnectedToMaster()
     {
+        // make player join the main lobby to allow them to see room updates
         PhotonNetwork.JoinLobby();
         Debug.Log("Joining back main lobby");
+        // delay loading of multiplayer_lobby to allow player to fully connect to the main lobby first
         StartCoroutine(LoadWithDelay());
         //SceneManager.LoadScene("Multiplayer_Lobby");
     }

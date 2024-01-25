@@ -389,8 +389,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 117140712}
-        m_TargetAssemblyTypeName: ConnectionController, Assembly-CSharp
-        m_MethodName: Connect
+        m_TargetAssemblyTypeName: PGGE.Multiplayer.ConnectionController, Assembly-CSharp
+        m_MethodName: OnClickConnect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

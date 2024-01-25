@@ -8,6 +8,10 @@ public class Player_Multiplayer : MonoBehaviour
 {
     private PhotonView mPhotonView;
 
+    //added const floats for the GunOffset
+    private const float GunOffset = 1.2f;
+    private const float GunFwdOffset = 0.1f;
+
     [HideInInspector]
     public FSM mFsm = new FSM();
     public Animator mAnimator;
@@ -15,7 +19,8 @@ public class Player_Multiplayer : MonoBehaviour
 
     // This is the maximum number of bullets that the player 
     // needs to fire before reloading.
-    public int mMaxAmunitionBeforeReload = 40;
+    // made this a private set
+    public int mMaxAmunitionBeforeReload { get; private set; } = 40;
 
     // This is the total number of bullets that the 
     // player has.
@@ -126,17 +131,19 @@ public class Player_Multiplayer : MonoBehaviour
 
         Vector3 dir = -mGunTransform.right.normalized;
         // Find gunpoint as mentioned in the worksheet.
+        // removed magic numbers and replaced them with more meaningful names
         Vector3 gunpoint = mGunTransform.transform.position +
-                           dir * 1.2f -
-                           mGunTransform.forward * 0.1f;
+                           dir * GunOffset -
+                           mGunTransform.forward * GunFwdOffset;
         // Fine the layer mask for objects that you want to intersect with.
         LayerMask objectsMask = ~mPlayerMask;
 
         // Do the Raycast
         RaycastHit hit;
-        bool flag = Physics.Raycast(gunpoint, dir,
+        // changing bool flag to something more meaningful
+        bool isHit = Physics.Raycast(gunpoint, dir,
                         out hit, 50.0f, objectsMask);
-        if (flag)
+        if (isHit)
         {
             // Draw a line as debug to show the aim of fire in scene view.
             Debug.DrawLine(gunpoint, gunpoint +
@@ -181,15 +188,16 @@ public class Player_Multiplayer : MonoBehaviour
         mPlayerMovement.Move();
     }
 
-    public void NoAmmo()
-    {
+    //removed unused methods
+    //public void NoAmmo() 
+    //{
 
-    }
+    //}
 
-    public void Reload()
-    {
+    //public void Reload()
+    //{
 
-    }
+    //}
 
     public void Fire(int id)
     {

@@ -8,6 +8,9 @@ using Photon.Realtime;
 public class RoomItem : MonoBehaviour
 {
 
+    // script for the RoomItem prefab
+    // contains simple get and set functions to obtain data from the prefab
+
     public TextMeshProUGUI roomName;
     public TextMeshProUGUI playerCount;
     public Image bgImg;
@@ -34,9 +37,10 @@ public class RoomItem : MonoBehaviour
         playerCount.text = "Players: " + _playerCount + "/" + _maxPlayers;
     }
 
+    // gets the numerical player count
     public int GetPlayerCount()
     {
-        // Parse the player count from the playerCount.text
+        // parse the player count from the playerCount.text
         string[] playerCountTextParts = playerCount.text.Split('/');
 
         if (playerCountTextParts.Length == 2)
@@ -48,7 +52,7 @@ public class RoomItem : MonoBehaviour
             }
         }
 
-        return 0; // Default value if parsing fails
+        return 0; // default value if parsing fails
     }
 
     public void SetColour(Color _color)
@@ -60,8 +64,10 @@ public class RoomItem : MonoBehaviour
         bgImg.color = defaultColour;
     }
 
+    // additional Join Button logic for the prefab
     public void OnClickJoin()
     {
+        // calls the JoinRoomByName function in LobbyManager by accessing its singleton, passing in the prefab's room name
         LobbyManager.instance.JoinRoomByName(roomName.text);
     }
 }
